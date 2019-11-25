@@ -9,6 +9,7 @@ import MonthDateHeader from './MonthDateHeader';
 import Event from './Event';
 import EventModal from './EventModal';
 import TimeGlutterHeader from './TimeGlutterHeader';
+import MODAL_HEIGHT from './utils/constants';
 
 import './Calendar.scss';
 import 'react-big-calendar/lib/sass/styles.scss';
@@ -86,8 +87,8 @@ class MyCalendar extends React.Component {
   }
 
   returnModalTopValue = y => {
-    if (document.body.clientHeight - Math.floor(y) < 363) {
-      return y -= 363;
+    if (document.body.clientHeight - Math.floor(y) < MODAL_HEIGHT) {
+      return y -= MODAL_HEIGHT;
     }
     return y;
   }
