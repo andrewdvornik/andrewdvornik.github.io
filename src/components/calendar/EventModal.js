@@ -4,6 +4,7 @@ import DatePicker from "react-datepicker";
 import { GithubPicker } from 'react-color';
 import moment from 'moment';
 import colors from './utils/colors';
+import DEFAULT_EVENT_COLOR from './utils/constants';
 
 import "../../../node_modules/react-datepicker/dist/react-datepicker.css";
 import './EventModal.scss';
@@ -12,8 +13,6 @@ function allDayCondition(event) {
   if (!event || (event && event.end && event.allDay)) return null;
   return event.end;
 }
-
-const defaultColor = '#3B86FF';
 
 class EventModal extends React.Component {
   constructor(props) {
@@ -26,7 +25,7 @@ class EventModal extends React.Component {
         start: props.event ? props.event.start : null,
         end: allDayCondition(props.event),
         desc: props.event ? props.event.desc : '',
-        color: props.event ? props.event.color : defaultColor
+        color: props.event ? props.event.color : DEFAULT_EVENT_COLOR
       },
       errors: {},
       showColorPicker: false
