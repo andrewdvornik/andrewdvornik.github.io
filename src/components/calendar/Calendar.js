@@ -9,7 +9,7 @@ import MonthDateHeader from './MonthDateHeader';
 import Event from './Event';
 import EventModal from './EventModal';
 import TimeGlutterHeader from './TimeGlutterHeader';
-import MODAL_HEIGHT from './utils/constants';
+import { MODAL_HEIGHT, CALENDAR_HEIGHT } from './utils/constants';
 
 import './Calendar.scss';
 import 'react-big-calendar/lib/sass/styles.scss';
@@ -146,7 +146,7 @@ class MyCalendar extends React.Component {
           allDayAccessor={'allDay'}
           tooltipAccessor={this.tooltipAccessor}
           step={60}
-          style={{ height: 750 }}
+          style={{ height: CALENDAR_HEIGHT }}
           events={this.state.events}
           onSelectSlot={this.selectSlot}
           onSelectEvent={this.selectEvent}
