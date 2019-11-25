@@ -28,19 +28,9 @@ const Toolbar = (toolbar) => {
     setActiveNav('today');
   };
 
-  const setMonthView = () => {
-    toolbar.onView('month');
-    setActiveView('month');
-  };
-
-  const setWeekView = () => {
-    toolbar.onView('week');
-    setActiveView('week');
-  };
-
-  const setDayView = () => {
-    toolbar.onView('day');
-    setActiveView('day');
+  const setView = view => () => {
+    toolbar.onView(view);
+    setActiveView(view);
   };
 
   const returnActiveNavClass = (type) => activeNav === type ? 'active' : '';
@@ -69,9 +59,9 @@ const Toolbar = (toolbar) => {
       <div className="toolbar-section">
         <div className="toolbar-title">Calendar view</div>
         <div className="toolbar-btn-block">
-          <div className={`toolbar-btn left ${returnActiveViewClass('month')}`} onClick={setMonthView}>Month</div>
-          <div className={`toolbar-btn ${returnActiveViewClass('week')}`} onClick={setWeekView}>Week</div>
-          <div className={`toolbar-btn right ${returnActiveViewClass('day')}`} onClick={setDayView}>Day</div>
+          <div className={`toolbar-btn left ${returnActiveViewClass('month')}`} onClick={setView('month')}>Month</div>
+          <div className={`toolbar-btn ${returnActiveViewClass('week')}`} onClick={setView('week')}>Week</div>
+          <div className={`toolbar-btn right ${returnActiveViewClass('day')}`} onClick={setView('day')}>Day</div>
         </div>
       </div>
       <div className="toolbar-bottom">
