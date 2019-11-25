@@ -34,14 +34,16 @@ class EventModal extends React.Component {
   }
 
   changeEventFieldValue = field => e => {
-    const { event, errors } = this.state;
+    const event = {...this.state.event};
+    const errors = {...this.state.errors};
     event[field] = e.target.value;
     delete errors[field];
     this.setState({ event, errors });
   };
 
   changeDate = date => {
-    const { event, errors } = this.state;
+    const event = {...this.state.event};
+    const errors = {...this.state.errors};
     event.start = date;
     if (date && errors.start) {
       delete errors.start;
@@ -50,7 +52,8 @@ class EventModal extends React.Component {
   }
 
   changeTime = field => date => {
-    const { event, errors } = this.state;
+    const event = {...this.state.event};
+    const errors = {...this.state.errors};
     event[field] = date;
 
     if (event.start && event.end) {
@@ -73,13 +76,13 @@ class EventModal extends React.Component {
   }
 
   changeColor = (color) => {
-    const { event } = this.state;
+    const event = {...this.state.event};
     event.color = color.hex;
     this.setState({ showColorPicker: false, event });
   }
 
   validateForm = () => {
-    const { event } = this.state;
+    const event = {...this.state.event};
     const errors = {};
     const fields = ['title', 'start', 'desc'];
 

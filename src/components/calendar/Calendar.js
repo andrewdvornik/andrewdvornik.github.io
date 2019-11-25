@@ -94,7 +94,7 @@ class MyCalendar extends React.Component {
   }
 
   createEvent = event => {
-    const { events } = this.state;
+    const events = {...this.state.events};
     events.push(event);
     this.setState({ events, ...this.setModalDefaults() });
   }
