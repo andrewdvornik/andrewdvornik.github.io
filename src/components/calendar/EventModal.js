@@ -124,6 +124,7 @@ class EventModal extends React.Component {
           <div className="input-block">
             <div className="input-label">event name</div>
             <input
+              maxLength={30}
               className={`modal-input ${this.state.errors.title ? 'error' : null}`}
               type="text" value={this.state.event.title}
               onChange={this.changeEventFieldValue('title')}
