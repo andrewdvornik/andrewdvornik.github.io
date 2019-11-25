@@ -1,0 +1,29 @@
+.app-container {
+  position: relative;
+  width: auto;
+  height: auto;
+  background: #F0F0F7 0% 0% no-repeat padding-box;
+  opacity: 1;
+  padding: 32px 0 103px 0;
+  font-family: "Source Sans Pro", sans-serif;
+
+  .app-content {
+    width: 1170px;
+    margin: 32px auto 100px auto;
+
+    .app-header {
+      font-size: 28px;
+      color: #43425D;
+      margin: 0 0 32px 0;
+    }
+    
+    .calendar-wrapper {
+      height: 859px;
+      background: #fff;
+      box-shadow: 0px 2px 6px #0000000A;
+      opacity: 1;
+      padding: 20px 19px;
+      
+    }
+  }
+}

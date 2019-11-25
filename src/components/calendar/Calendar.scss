@@ -1,0 +1,107 @@
+$border-color: #EAF0F4;
+
+.rbc-header {
+  padding: 0 !important;
+}
+
+.rbc-header + .rbc-header {
+  border-left: none !important;
+}
+
+.rbc-month-header {
+  border-right: 1px solid $border-color !important;
+  border-top: 1px solid $border-color !important;
+}
+
+.rbc-month-view {
+  border-color: $border-color !important;
+}
+
+.rbc-time-view {
+  border-color: $border-color !important;
+}
+
+.rbc-day-bg {
+  border-color: $border-color !important;
+}
+
+.rbc-date-cell {
+  padding-right: 10px !important;
+  padding-top: 16px !important;
+  margin-bottom: 4px !important;
+  font-size: 15px !important;
+  color: #43425D !important;
+}
+
+.rbc-date-cell.rbc-now {
+  font-weight: 100 !important;
+}
+
+.rbc-today {
+  background-color: #F5F6FA !important;
+}
+
+.rbc-event {
+  &:focus {
+    outline: none !important;
+  }
+}
+
+.rbc-time-slot {
+  display: flex !important;
+  justify-content: space-around !important;
+  align-items: flex-end !important;
+}
+
+.rbc-label {
+  padding: 0 10.5px !important;
+  font-family: 'Source Sans Pro' !important;
+  font-size: 13px !important;
+  color: #4D4F5C !important;
+}
+
+.rbc-current-time-indicator {
+  background-color: #3B86FF !important;
+}
+
+.rbc-time-header-gutter {
+  display: flex !important;
+  justify-content: space-around !important;
+  align-items: center !important;
+}
+
+.rbc-time-view {
+  margin-top: -35px !important;
+  border-top: 1px solid $border-color !important;
+  border-left: 1px solid $border-color !important;
+  border-right: 1px solid $border-color !important;
+  border-bottom: none !important;
+}
+
+.rbc-event-label {
+  display: none !important;
+}
+
+.rbc-time-header-content {
+  border-left-color: $border-color;
+}
+
+.rbc-time-header-content {
+  border-left-color: $border-color !important;
+}
+
+.rbc-time-content {
+  border-top: 1px solid $border-color !important;
+}
+
+.rbc-time-content > * + * > * {
+  border-color: $border-color !important;
+}
+
+.rbc-timeslot-group {
+  border-color: $border-color !important;
+}
+
+.rbc-off-range-bg {
+  background-color: #fff !important;
+}

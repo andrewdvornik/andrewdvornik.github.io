@@ -1,0 +1,65 @@
+$font-color: #4D4F5C;
+
+.toolbar-container {
+  height: 109px;
+  margin-bottom: 20px;
+
+  .toolbar-section {
+    display: flex;
+    justify-content: space-between;
+    height: 32px;
+    margin-bottom: 5px;
+
+    &.bottom {
+      width: 55%;
+    }
+
+    .toolbar-title {
+      font-size: 18px;
+      color: $font-color;
+      
+    }
+
+    .toolbar-btn-block {
+      display: flex;
+      align-items: center;
+    }
+
+    .toolbar-label {
+      font-size: 18px;
+      color: $font-color;
+      margin-top: 6px;
+    }
+  }
+
+  .toolbar-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 68.86px;
+    height: 32px;
+    background-color: #fff;
+    border: 1px solid #D7DAE2;
+    text-align: center;
+    color: $font-color;
+    font-size: 14px;
+
+    &.left {
+      border-radius: 4px 0 0 4px;
+      border-right: none;
+    }
+
+    &.right {
+      border-radius: 0 4px 4px 0;
+      border-left: none;
+    }
+
+    &.active {
+      color: #3B86FF;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

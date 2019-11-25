@@ -1,0 +1,120 @@
+$grey-color: #D6D6D6;
+
+.modal-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 167px;
+  height: 330px;
+  padding: 6px 7px 25px 25.5px;
+  border: 1px solid #43425D;
+  border-radius: 10px;
+  background-color: #fff;
+  z-index: 10;
+  box-shadow: 0px 3px 18px #00000029;
+  opacity: 1;
+
+  .close-icon-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    
+    &:hover {
+      cursor: pointer;
+    }
+
+    .close-icon {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 20px;
+      height: 20px;
+      border: 2px solid $grey-color;
+      border-radius: 50%;
+  
+      .close-symbol {
+        margin-left: 1px;
+        font-size: 14px;
+        color: $grey-color;
+      }
+    }
+  }
+
+  .inputs-wrapper {
+    width: 148px;
+    height: 100%;
+
+    .input-block {
+      height: 28.5px;
+      margin-bottom: 20px;
+
+      .input-label {
+        color: $grey-color;
+        font-size: 9px;
+      }
+
+      .modal-input {
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: 1px solid $grey-color;
+        height: 20px;
+        width: 140px;
+        color: #43425D;
+        font-size: 9px;
+
+        &.small {
+          font-style: italic;
+          font-size: 9px;
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      .error {
+        border-color: #FF5F5F
+      }
+
+      .color-box {
+        position: relative;
+        width: 20px;
+        height: 20px;
+
+        &:hover {
+          cursor: pointer;
+        }
+
+        .color-picker-wrapper {
+          position: absolute;
+          top: 15px;
+          left: -8px;
+        }
+      }
+    }
+  }
+
+  .buttons-wrapper {
+    display: flex;
+    justify-content: space-between;
+    color: #6A6996;
+    padding-right: 24px;
+
+    .modal-btn {
+      height: 15px;
+      font-size: 15px;
+
+      &:focus {
+        outline: none;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &.cancel {
+        color: #FF5F5F;
+      }
+    }
+  }
+}
