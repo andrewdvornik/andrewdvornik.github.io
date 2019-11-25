@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { monthNames } from './utils/dateHelper';
-import moment from 'moment';
 
 import './Toolbar.scss';
 
 const Toolbar = (toolbar) => {
   const [activeNav, setActiveNav] = useState('today');
-  const [activeView, setActiveView] = useState('month');
 
   const goToBack = () => {
-    switch (activeView) {
+    switch (toolbar.view) {
       case 'week':
         toolbar.date.setDate(toolbar.date.getDate() - 7);
         break;
@@ -26,7 +24,7 @@ const Toolbar = (toolbar) => {
   };
 
   const goToNext = () => {
-    switch (activeView) {
+    switch (toolbar.view) {
       case 'week':
         toolbar.date.setDate(toolbar.date.getDate() + 7);
         break;
@@ -52,12 +50,11 @@ const Toolbar = (toolbar) => {
 
   const setView = view => () => {
     toolbar.onView(view);
-    setActiveView(view);
   };
 
   const returnActiveNavClass = (type) => activeNav === type ? 'active' : '';
 
-  const returnActiveViewClass = (type) => activeView === type ? 'active' : '';
+  const returnActiveViewClass = (type) => toolbar.view === type ? 'active' : '';
 
   const returnViewLabel = () => {
     let label = '';
