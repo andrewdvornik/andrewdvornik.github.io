@@ -94,7 +94,7 @@ class MyCalendar extends React.Component {
   }
 
   createEvent = event => {
-    const events = {...this.state.events};
+    const events = [...this.state.events];
     events.push(event);
     this.setState({ events, ...this.setModalDefaults() });
   }
@@ -129,7 +129,7 @@ class MyCalendar extends React.Component {
   }
 
   eventPropGetter = (event, start, end, isSelected) => {
-    return { style: { backgroundColor: event.color  } }
+    return { style: { backgroundColor: event.color } }
   }
 
   render() {

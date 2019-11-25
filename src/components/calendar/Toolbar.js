@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { monthNames } from './utils/dateHelper';
+import moment from 'moment';
 
 import './Toolbar.scss';
 
@@ -9,38 +10,49 @@ const Toolbar = (toolbar) => {
   const [activeView, setActiveView] = useState('month');
 
   const goToBack = () => {
-    toolbar.date.setMonth(toolbar.date.getMonth() - 1);
+    switch (activeView) {
+      case 'week':
+        toolbar.date.setDate(toolbar.date.getDate() - 7);
+        break;
+      case 'day':
+        toolbar.date.setDate(toolbar.date.getDate() - 1);
+        break;
+      default:
+        toolbar.date.setMonth(toolbar.date.getMonth() - 1);
+    }
+
     toolbar.onNavigate('prev');
     setActiveNav('back');
   };
 
   const goToNext = () => {
-    toolbar.date.setMonth(toolbar.date.getMonth() + 1);
+    switch (activeView) {
+      case 'week':
+        toolbar.date.setDate(toolbar.date.getDate() + 7);
+        break;
+      case 'day':
+        toolbar.date.setDate(toolbar.date.getDate() + 1);
+        break;
+      default:
+        toolbar.date.setMonth(toolbar.date.getMonth() + 1);
+    }
+
     toolbar.onNavigate('next');
     setActiveNav('next');
   };
 
   const goToCurrent = () => {
     const now = new Date();
+    toolbar.date.setDate(now.getDate());
     toolbar.date.setMonth(now.getMonth());
     toolbar.date.setYear(now.getFullYear());
     toolbar.onNavigate('current');
     setActiveNav('today');
   };
 
-  const setMonthView = () => {
-    toolbar.onView('month');
-    setActiveView('month');
-  };
-
-  const setWeekView = () => {
-    toolbar.onView('week');
-    setActiveView('week');
-  };
-
-  const setDayView = () => {
-    toolbar.onView('day');
-    setActiveView('day');
+  const setView = view => () => {
+    toolbar.onView(view);
+    setActiveView(view);
   };
 
   const returnActiveNavClass = (type) => activeNav === type ? 'active' : '';
@@ -69,9 +81,9 @@ const Toolbar = (toolbar) => {
       <div className="toolbar-section">
         <div className="toolbar-title">Calendar view</div>
         <div className="toolbar-btn-block">
-          <div className={`toolbar-btn left ${returnActiveViewClass('month')}`} onClick={setMonthView}>Month</div>
-          <div className={`toolbar-btn ${returnActiveViewClass('week')}`} onClick={setWeekView}>Week</div>
-          <div className={`toolbar-btn right ${returnActiveViewClass('day')}`} onClick={setDayView}>Day</div>
+          <div className={`toolbar-btn left ${returnActiveViewClass('month')}`} onClick={setView('month')}>Month</div>
+          <div className={`toolbar-btn ${returnActiveViewClass('week')}`} onClick={setView('week')}>Week</div>
+          <div className={`toolbar-btn right ${returnActiveViewClass('day')}`} onClick={setView('day')}>Day</div>
         </div>
       </div>
       <div className="toolbar-bottom">

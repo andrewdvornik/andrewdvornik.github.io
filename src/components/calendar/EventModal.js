@@ -4,7 +4,7 @@ import DatePicker from "react-datepicker";
 import { GithubPicker } from 'react-color';
 import moment from 'moment';
 import colors from './utils/colors';
-import DEFAULT_EVENT_COLOR from './utils/constants';
+import { DEFAULT_EVENT_COLOR } from './utils/constants';
 
 import "../../../node_modules/react-datepicker/dist/react-datepicker.css";
 import './EventModal.scss';
