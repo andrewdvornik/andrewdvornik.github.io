@@ -53,11 +53,11 @@ class MyCalendar extends React.Component {
   }
 
   selectSlot = (event) => {
-    if (this.state.eventModalIsOpen === true || !event.box) {
+    if (this.state.eventModalIsOpen || !event.box) {
       return false;
     }
 
-    let top = this.returnModalTopValue(event.box.y);
+    const top = this.returnModalTopValue(event.box.y);
 
     this.setState({
       eventModalIsOpen: true,
@@ -67,7 +67,7 @@ class MyCalendar extends React.Component {
   }
 
   selectEvent = (event) => {
-    if (this.state.eventModalIsOpen === true) {
+    if (this.state.eventModalIsOpen) {
       return false;
     }
 
@@ -75,13 +75,13 @@ class MyCalendar extends React.Component {
   }
 
   calculateCoordinatesForModal = e => {
-    if (this.state.eventModalIsOpen === true) {
+    if (this.state.eventModalIsOpen) {
       return false;
     }
 
     e.persist();
 
-    let top = this.returnModalTopValue(e.pageY);
+    const top = this.returnModalTopValue(e.pageY);
 
     this.setState({ modalCoordinates: { top, left: Math.floor(e.pageX) } })
   }
